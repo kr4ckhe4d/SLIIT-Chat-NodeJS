@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
 
 io.on('connection', function(socket) {
     console.log('a user connected');
-    io.to(socket.id).emit('chat message', 'Welcome to chat');
+    io.to(socket.id).emit('chat message', 'Welcome to SLIIT chat');
 
     if (clients.indexOf(socket.id) == -1) {
         clients.push(socket.id);
