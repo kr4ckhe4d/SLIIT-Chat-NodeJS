@@ -4,142 +4,53 @@
 <head>
     <title>SLIIT chat</title>
 </head>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
 <link rel="stylesheet" type="text/css" href="app.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="styling/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="styling/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="styling/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+<script src="styling/bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
 
 <body>
     <div class="menu">
         <img src="img/SLIIT_Logo_Crest.png" class="name-image" draggable="false" />
         <div class="name">SLIIT Chat</div>
     </div>
-    <ol class="chat" id="chat">
-        <!--
-        <li class="self">
-            <div class="avatar"><img src="https://i.imgur.com/HYcn9xO.png" draggable="false" /></div>
-            <div class="msg">
-                <p>Puff...</p>
-                <p>Aún estoy haciendo el contexto de Góngora...
-                    <emoji class="books" />
-                </p>
-                <p>Mejor otro día</p>
-                <time>20:18</time>
-            </div>
-        </li>
-        <li class="other">
-            <div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false" /></div>
-            <div class="msg">
-                <p>Qué contexto de Góngora?
-                    <emoji class="suffocated" />
-                </p>
-                <time>20:18</time>
-            </div>
-        </li>
-        <li class="self">
-            <div class="avatar"><img src="https://i.imgur.com/HYcn9xO.png" draggable="false" /></div>
-            <div class="msg">
-                <p>El que mandó Marialu</p>
-                <p>Es para mañana...</p>
-                <time>20:18</time>
-            </div>
-        </li>
-        <li class="other">
-            <div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false" /></div>
-            <div class="msg">
-                <p>
-                    <emoji class="scream" />
-                </p>
-                <p>Pásamelo!
-                    <emoji class="please" />
-                </p>
-                <time>20:18</time>
-            </div>
-        </li>
-        <li class="self">
-            <div class="avatar"><img src="https://i.imgur.com/HYcn9xO.png" draggable="false" /></div>
-            <div class="msg">
-                <img src="https://i.imgur.com/QAROObc.jpg" draggable="false" />
-                <time>20:19</time>
-            </div>
-        </li>
-        <li class="other">
-            <div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false" /></div>
-            <div class="msg">
-                <p>Gracias!
-                    <emoji class="hearth_blue" />
-                </p>
-                <time>20:20</time>
-            </div>
-        </li>
-        <div class="day">Hoy</div>
-        <li class="self">
-            <div class="avatar"><img src="https://i.imgur.com/HYcn9xO.png" draggable="false" /></div>
-            <div class="msg">
-                <p>Te apetece jugar a Minecraft?</p>
-                <time>18:03</time>
-            </div>
-        </li>
-        <li class="other">
-            <div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false" /></div>
-            <div class="msg">
-                <p>Venga va, hace ya mucho que no juego...</p>
-                <time>18:07</time>
-            </div>
-        </li>
-        <li class="self">
-            <div class="avatar"><img src="https://i.imgur.com/HYcn9xO.png" draggable="false" /></div>
-            <div class="msg">
-                <p>Ehh, me crashea el Launcher...
-                    <emoji class="cryalot" />
-                </p>
-                <time>18:08</time>
-            </div>
-        </li>
-        <li class="other">
-            <div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false" /></div>
-            <div class="msg">
-                <p>
-                    <emoji class="lmao" />
-                </p>
-                <time>18:08</time>
-            </div>
-        </li>
-        <li class="self">
-            <div class="avatar"><img src="https://i.imgur.com/HYcn9xO.png" draggable="false" /></div>
-            <div class="msg">
-                <p>Es broma</p>
-                <p>Ataque Moai!</p>
-                <p><span><emoji class="moai"/></span><span><emoji class="moai"/></span><span><emoji class="moai"/></span><span><emoji class="moai"/></span><span><emoji class="moai"/></span><span><emoji class="moai"/></span></p>
-                <time>18:09</time>
-            </div>
-        </li>
-        <li class="other">
-            <div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false" /></div>
-            <div class="msg">
-                <p>Copón</p>
-                <p>
-                    <emoji class="funny" />
-                </p>
-                <time>18:08</time>
-            </div>
-        </li>
-        <li class="self">
-            <div class="avatar"><img src="https://i.imgur.com/HYcn9xO.png" draggable="false" /></div>
-            <div class="msg">
-                <p>Hey there's a new update about this chat UI with more responsive elements! Check it now:</p>
-                <p><a href="https://codepen.io/Varo/pen/YPmwpQ" target="parent">Chat UI 2.0</a></p>
-                <time>18:09</time>
-            </div>
-        </li>-->
-    </ol>
+    <ol class="chat" id="chat"></ol>
     <form action="" id="form">
         <input class="textarea" id="m" autocomplete="off" type="text" placeholder="Type here!" /><button type="button" style="display:none">Send</button>
     </form>
-    <!--<div class="emojis"></div>-->
-    <!--<ul id="messages"></ul>
-    <form action="">
-        <input id="m" autocomplete="off" /><button type="button" class="btn btn-default">Send</button>
-    </form>-->
+
+    <div class="modal fade" data-backdrop="static" tabindex="-1" style="display:none" id="myModal" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Please enter a username to enter Chatroom</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" placeholder="Username" id="userName" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="saveUsername" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
     <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="app.js" type="text/javascript"></script>
     <script src="styling/bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
 </body>

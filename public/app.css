@@ -89,6 +89,12 @@ a {
     cursor: default;
 }
 
+.modal-header {
+    background-color: #5050ad;
+    color: white;
+    text-align: center;
+}
+
 .last {
     position: absolute;
     top: 30px;
