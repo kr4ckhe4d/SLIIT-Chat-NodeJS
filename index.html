@@ -35,16 +35,22 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Please enter a username to enter Chatroom</h4>
+                    <h4 class="modal-title">Please enter a Username and Chatroom Name</h4>
                 </div>
                 <div class="modal-body">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">@</span>
                         <input type="text" class="form-control" placeholder="Username" id="userName" aria-describedby="basic-addon1">
                     </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">&nbsp;/&nbsp;</span>
+                        <input type="text" class="form-control" placeholder="Chatroom Name" id="chatRoomName" aria-describedby="basic-addon3">
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="saveUsername" class="btn btn-primary">Save changes</button>
+                    <button type="button" id="joinChatRoom" class="btn btn-primary">Join Chatroom</button>
+                    <button type="button" id="createChatRoom" class="btn btn-primary">Create New Chatroom</button>
                 </div>
             </div>
             <!-- /.modal-content -->

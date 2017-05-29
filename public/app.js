@@ -1,6 +1,7 @@
 $(function() {
     var socket = io();
     var username = '';
+    var chatRoomName = '';
     console.log(socket);
     $('#myModal').modal('toggle');
 
@@ -8,10 +9,30 @@ $(function() {
     $('#btnChatHistory').click(function() {
         socket.emit('retrieve history', { 'from': username });
     });
+    //joinChatRoom
+    $('#joinChatRoom').click(function() {
+        username = $('#userName').val();
+        chatRoomName = $('#chatRoomName').val();
+        socket.emit('check availability', { 'name': $('#userName').val(), 'chatRoomName': chatRoomName }, function(status, response) {
+            console.log(JSON.stringify('Status: ' + status));
+            console.log(JSON.stringify('Response: ' + response));
+            if (status == 'error') {
+                alert("Could not find a chatroom by the name " + chatRoomName);
+            } else {
+                socket.emit('register', { 'name': $('#userName').val(), 'chatRoomName': chatRoomName }, function(error) {
+                    if (error == 'success') {
+                        socket.emit('retrieve history', { 'from': username });
+                        $('#myModal').modal('toggle');
+                    }
+                });
+            }
+        });
+        // $('#myModal').modal('toggle');
+    });
 
     $('#saveUsername').click(function() {
         username = $('#userName').val();
-        socket.emit('register', { 'name': $('#userName').val() });
+        socket.emit('register', { 'name': $('#userName').val(), 'chatRoomName': chatRoomName });
         $('#myModal').modal('toggle');
     });
 
