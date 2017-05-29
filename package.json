@@ -1,19 +1,20 @@
 {
-  "name": "mtit-node-socket-chat",
-  "version": "1.0.0",
-  "description": "A simple chat developed for mtit node.js assignment.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Nipuna H Herath",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.15.2",
-    "mongodb": "^2.2.27",
-    "socket.io": "^2.0.1"
-  },
-  "devDependencies": {
-    "nodemon": "^1.11.0"
-  }
+    "name": "mtit-node-socket-chat",
+    "version": "1.0.0",
+    "description": "A simple chat developed for mtit node.js assignment.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "author": "Nipuna H Herath",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.15.2",
+        "mongodb": "^2.2.27",
+        "socket.io": "^2.0.1"
+    },
+    "devDependencies": {
+        "nodemon": "^1.11.0"
+    }
 }
