@@ -82,6 +82,7 @@ $(function() {
     });
     //'chat history'
     socket.on('chat history', function(msg) {
+        $("#btnChatHistory").prop("disabled", true);
         console.log('history object: ' + JSON.stringify(msg));
         if (msg.length == 0) { return; }
         for (var i = 0; i < msg.length; i++) {
