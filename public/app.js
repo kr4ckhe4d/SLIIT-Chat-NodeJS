@@ -32,6 +32,39 @@ $(function() {
     //'chat history'
     socket.on('chat history', function(msg) {
         console.log('history object: ' + JSON.stringify(msg));
+        if (msg.length == 0) { return; }
+        for (var i = 0; i < msg.length; i++) {
+            if (msg[i].from == username) {
+                $('#chat').prepend('<li class="self">' +
+                    '<div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false" /></div>' +
+                    '<div class="msg">' +
+                    '<p>Me:</p>' +
+                    '<p>' + msg[i].message +
+                    '</p>' +
+                    '<time>20:17</time>' +
+                    ' </div>' +
+                    '</li>');
+            } else {
+                $('#chat').prepend('<li class="other">' +
+                    '<div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false" /></div>' +
+                    '<div class="msg">' +
+                    '<p>' + msg[i].from + ':</p>' +
+                    '<p>' + msg[i].message +
+                    '</p>' +
+                    '<time>20:17</time>' +
+                    ' </div>' +
+                    '</li>');
+            }
+        }
+        // $('#chat').prepend('<li class="self">' +
+        //     '<div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false" /></div>' +
+        //     '<div class="msg">' +
+        //     '<p>Me:</p>' +
+        //     '<p>' + 'lol old msg' +
+        //     '</p>' +
+        //     '<time>20:17</time>' +
+        //     ' </div>' +
+        //     '</li>');
 
     });
 
