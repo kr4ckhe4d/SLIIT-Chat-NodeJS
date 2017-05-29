@@ -13,20 +13,24 @@ $(function() {
     $('#joinChatRoom').click(function() {
         username = $('#userName').val();
         chatRoomName = $('#chatRoomName').val();
-        socket.emit('check availability', { 'name': $('#userName').val(), 'chatRoomName': chatRoomName }, function(status, response) {
-            console.log(JSON.stringify('Status: ' + status));
-            console.log(JSON.stringify('Response: ' + response));
-            if (status == 'error') {
-                alert("Could not find a chatroom by the name " + chatRoomName);
-            } else {
-                socket.emit('register', { 'name': $('#userName').val(), 'chatRoomName': chatRoomName }, function(error) {
-                    if (error == 'success') {
-                        socket.emit('retrieve history', { 'from': username });
-                        $('#myModal').modal('toggle');
-                    }
-                });
-            }
-        });
+        if (username != '' && chatRoomName != '') {
+            socket.emit('check availability', { 'name': $('#userName').val(), 'chatRoomName': chatRoomName }, function(status, response) {
+                console.log(JSON.stringify('Status: ' + status));
+                console.log(JSON.stringify('Response: ' + response));
+                if (status == 'error') {
+                    alert("Could not find a chatroom by the name " + chatRoomName);
+                } else {
+                    socket.emit('register', { 'name': $('#userName').val(), 'chatRoomName': chatRoomName }, function(error) {
+                        if (error == 'success') {
+                            socket.emit('retrieve history', { 'from': username });
+                            $('#myModal').modal('toggle');
+                        }
+                    });
+                }
+            });
+        } else {
+            alert('Username and Chatroom Name Cannot be empty');
+        }
         // $('#myModal').modal('toggle');
     });
 
