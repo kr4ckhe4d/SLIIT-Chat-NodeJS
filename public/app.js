@@ -4,6 +4,11 @@ $(function() {
     console.log(socket);
     $('#myModal').modal('toggle');
 
+    //btnChatHistory
+    $('#btnChatHistory').click(function() {
+        socket.emit('retrieve history', { 'from': username });
+    });
+
     $('#saveUsername').click(function() {
         username = $('#userName').val();
         socket.emit('register', { 'name': $('#userName').val() });
@@ -23,6 +28,11 @@ $(function() {
         socket.emit('chat message', { 'message': $('#m').val(), 'from': username });
         $('#m').val('');
         return false;
+    });
+    //'chat history'
+    socket.on('chat history', function(msg) {
+        console.log('history object: ' + JSON.stringify(msg));
+
     });
 
     socket.on('chat message', function(msg) {

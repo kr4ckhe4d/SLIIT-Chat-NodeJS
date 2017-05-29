@@ -46,6 +46,15 @@ io.on('connection', function(socket) {
         }
     });
 
+    //'retrieve history'
+    socket.on('retrieve history', function(msg) {
+        console.log('retrieve history by: ' + msg.from);
+        db.collection('chat').find().toArray(function(err, results) {
+            console.log(results)
+            io.to(socket.id).emit('chat history', results);
+        })
+    });
+
     socket.on('chat message', function(msg) {
         db.collection('chat').save(msg, (err, result) => {
             if (err) return console.log(err)

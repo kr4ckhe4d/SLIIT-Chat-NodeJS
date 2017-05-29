@@ -76,6 +76,13 @@ a {
     cursor: default;
 }
 
+.btn-history {
+    position: absolute;
+    top: 3px;
+    height: 85%;
+    right: 1%;
+}
+
 .name-image {
     position: absolute;
     top: 3px;
