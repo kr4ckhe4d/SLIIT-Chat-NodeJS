@@ -6,7 +6,19 @@ var io = require('socket.io')(http);
 var clients = [];
 var regUsers = [];
 
+const MongoClient = require('mongodb').MongoClient
+
+var db
+
 app.use(express.static('public'));
+
+MongoClient.connect('mongodb://root:root@ds155841.mlab.com:55841/sliit-chat-mtit', (err, database) => {
+    if (err) return console.log(err)
+    db = database
+    http.listen(3000, function() {
+        console.log('listening on *:3000');
+    });
+})
 
 app.get('/', function(req, res) {
     console.log('GET /');
@@ -54,8 +66,4 @@ io.on('connection', function(socket) {
         //     io.to(clients[i]).emit('chat message', i);
         // }
     });
-});
-
-http.listen(3000, function() {
-    console.log('listening on *:3000');
 });
