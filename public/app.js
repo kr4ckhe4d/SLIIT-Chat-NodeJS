@@ -24,6 +24,7 @@ $(function() {
                         if (error == 'success') {
                             socket.emit('retrieve history', { 'from': username });
                             $('#myModal').modal('toggle');
+                            $(".name").html('SLIIT Chat - ' + chatRoomName);
                         }
                     });
                 }
@@ -48,6 +49,7 @@ $(function() {
                             alert('New chatroom created.');
                             // socket.emit('retrieve history', { 'from': username });
                             $('#myModal').modal('toggle');
+                            $(".name").html('SLIIT Chat - ' + chatRoomName);
                         }
                     });
                 } else if (status == 'success') {
