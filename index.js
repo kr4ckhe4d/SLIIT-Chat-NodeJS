@@ -6,9 +6,10 @@ var io = require('socket.io')(http);
 var clients = [];
 var regUsers = [];
 
-const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient;
 
-var db
+var db;
+var collectionID;
 
 app.use(express.static('public'));
 
@@ -46,6 +47,11 @@ io.on('connection', function(socket) {
     });
 
     socket.on('chat message', function(msg) {
+        db.collection('chat').save(msg, (err, result) => {
+            if (err) return console.log(err)
+            console.log('saved to database')
+        })
+
         console.log('message: ' + msg.message);
         var username = '';
         for (var i = 0; i < regUsers.length; i++) {
