@@ -34,6 +34,32 @@ $(function() {
         // $('#myModal').modal('toggle');
     });
 
+    //createChatRoom
+    $('#createChatRoom').click(function() {
+        username = $('#userName').val();
+        chatRoomName = $('#chatRoomName').val();
+        if (username != '' && chatRoomName != '') {
+            socket.emit('check availability', { 'name': $('#userName').val(), 'chatRoomName': chatRoomName }, function(status, response) {
+                console.log(JSON.stringify('Status: ' + status));
+                console.log(JSON.stringify('Response: ' + response));
+                if (status == 'error') {
+                    socket.emit('register', { 'name': $('#userName').val(), 'chatRoomName': chatRoomName }, function(error) {
+                        if (error == 'success') {
+                            alert('New chatroom created.');
+                            // socket.emit('retrieve history', { 'from': username });
+                            $('#myModal').modal('toggle');
+                        }
+                    });
+                } else if (status == 'success') {
+                    alert(chatRoomName + " already exists.");
+                }
+            });
+        } else {
+            alert('Username and Chatroom Name Cannot be empty');
+        }
+        // $('#myModal').modal('toggle');
+    });
+
     $('#saveUsername').click(function() {
         username = $('#userName').val();
         socket.emit('register', { 'name': $('#userName').val(), 'chatRoomName': chatRoomName });

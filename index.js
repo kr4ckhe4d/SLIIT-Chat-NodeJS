@@ -54,7 +54,7 @@ io.on('connection', function(socket) {
             console.log('Registered ' + msg.name);
             chatRoomName = msg.chatRoomName;
             response('success');
-            io.to(socket.id).emit('chat message', { 'message': 'Welcome to SLIIT chat ' + msg.name, 'from': 'SLIIT Bot' });
+            io.to(socket.id).emit('chat message', { 'message': 'Welcome to SLIIT chat ' + msg.name + '. You have joined chatroom ' + msg.chatRoomName, 'from': 'SLIIT Bot' });
         }
     });
 
@@ -71,6 +71,7 @@ io.on('connection', function(socket) {
     socket.on('check availability', function(msg, response) {
         console.log('join chatroom: ' + msg.from);
         db.collection(msg.chatRoomName).find().toArray(function(err, results) {
+            console.log('availability: ' + results)
             if (results.length == 0) {
                 response('error', results);
             } else {
@@ -80,7 +81,7 @@ io.on('connection', function(socket) {
     });
 
     socket.on('chat message', function(msg) {
-        db.collection('chat').save(msg, (err, result) => {
+        db.collection(chatRoomName).save(msg, (err, result) => {
             if (err) return console.log(err)
             console.log('saved to database')
         })
