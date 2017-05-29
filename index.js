@@ -16,9 +16,19 @@ app.use(express.static('public'));
 MongoClient.connect('mongodb://root:root@ds155841.mlab.com:55841/sliit-chat-mtit', (err, database) => {
     if (err) return console.log(err)
     db = database
-    http.listen(3000, function() {
-        console.log('listening on *:3000');
+
+
+    // set the port of our application
+    // process.env.PORT lets the port be set by Heroku
+    var port = process.env.PORT || 8080;
+    // ONLY REQUIRED WHEN YOURE DEPLOYING TO HEROKU ETC
+    http.listen(port, function() {
+        console.log('listening on 8080');
     });
+
+    // http.listen(3000, function() {
+    //     console.log('listening on *:3000');
+    // });
 })
 
 app.get('/', function(req, res) {
