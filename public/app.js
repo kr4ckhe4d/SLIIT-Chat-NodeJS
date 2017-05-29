@@ -84,10 +84,9 @@ $(function() {
     });
     //'chat history'
     socket.on('chat history', function(msg) {
-        $("#btnChatHistory").prop("disabled", true);
         console.log('history object: ' + JSON.stringify(msg));
         if (msg.length == 0) { return; }
-        for (var i = 0; i < msg.length; i++) {
+        for (var i = msg.length - 1; i > -1; i--) {
             if (msg[i].from == username) {
                 $('#chat').prepend('<li class="self">' +
                     '<div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false" /></div>' +
