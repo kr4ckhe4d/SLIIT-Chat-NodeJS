@@ -9,6 +9,7 @@ $(function() {
     $('#btnChatHistory').click(function() {
         socket.emit('retrieve history', { 'from': username });
     });
+
     //joinChatRoom
     $('#joinChatRoom').click(function() {
         username = $('#userName').val();
@@ -81,6 +82,7 @@ $(function() {
         $('#m').val('');
         return false;
     });
+
     //'chat history'
     socket.on('chat history', function(msg) {
         console.log('history object: ' + JSON.stringify(msg));
