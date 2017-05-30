@@ -32,7 +32,6 @@ $(function() {
         } else {
             alert('Username and Chatroom Name Cannot be empty');
         }
-        // $('#myModal').modal('toggle');
     });
 
     //createChatRoom
@@ -109,16 +108,6 @@ $(function() {
                     '</li>');
             }
         }
-        // $('#chat').prepend('<li class="self">' +
-        //     '<div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false" /></div>' +
-        //     '<div class="msg">' +
-        //     '<p>Me:</p>' +
-        //     '<p>' + 'lol old msg' +
-        //     '</p>' +
-        //     '<time>20:17</time>' +
-        //     ' </div>' +
-        //     '</li>');
-
     });
 
     socket.on('chat message', function(msg) {
