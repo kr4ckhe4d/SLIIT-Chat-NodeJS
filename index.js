@@ -18,12 +18,14 @@ MongoClient.connect('mongodb://root:root@ds155841.mlab.com:55841/sliit-chat-mtit
     if (err) return console.log(err)
     db = database
 
-    // set the port of our application
-    // process.env.PORT lets the port be set by Heroku
+    // Set the port of our application
+    /* 
+     *process.env.PORT lets the port to be set dynamically depending
+     *on the environmnent the server is hosted.
+     */
     var port = process.env.PORT || 8080;
-    // ONLY REQUIRED WHEN YOURE DEPLOYING TO HEROKU ETC
     http.listen(port, function() {
-        console.log('listening on 8080');
+        console.log('listening on ' + port);
     });
 
     // http.listen(3000, function() {
@@ -39,10 +41,6 @@ app.get('/', function(req, res) {
 io.on('connection', function(socket) {
     console.log('a user connected');
 
-    // if (clients.indexOf(socket.id) == -1) {
-    //     clients.push(socket.id);
-    // }
-
     socket.on('disconnect', function() {
         console.log('user disconnected');
     });
@@ -54,7 +52,12 @@ io.on('connection', function(socket) {
             console.log('Registered ' + msg.name);
             chatRoomName = msg.chatRoomName;
             response('success');
-            io.to(socket.id).emit('chat message', { 'message': 'Welcome to SLIIT chat ' + msg.name + '. You have joined chatroom ' + msg.chatRoomName, 'from': 'SLIIT Bot' });
+            io.to(socket.id).emit('chat message', {
+                'message': 'Welcome to SLIIT chat ' + msg.name +
+                    '. You have joined chatroom ' + msg.chatRoomName,
+                'from': 'SLIIT Bot',
+                'timestamp': ' '
+            });
         }
     });
 
@@ -100,10 +103,5 @@ io.on('connection', function(socket) {
 
         console.log('No of clients: ' + clients.length);
         console.log('Clients: ' + clients);
-
-
-        // for (var i = 0; i < clients.length; i++) {
-        //     io.to(clients[i]).emit('chat message', i);
-        // }
     });
 });

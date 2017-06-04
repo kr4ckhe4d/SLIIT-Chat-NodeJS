@@ -233,7 +233,7 @@ a {
 }
 
 .msg p {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin: 0 0 0.2rem 0;
     color: #777;
 }
@@ -265,7 +265,7 @@ a {
 }
 
 .msg time {
-    font-size: 0.7rem;
+    font-size: 1.3rem;
     color: #ccc;
     margin-top: 3px;
     float: right;
