@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>SLIIT chat</title>
+</head>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+<link rel="stylesheet" type="text/css" href="app.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="styling/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="styling/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="styling/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+<script src="styling/bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
+
+<body>
+    <div class="menu">
+        <img src="img/SLIIT_Logo_Crest.png" class="name-image" draggable="false" />
+        <div class="name">SLIIT Chat</div>
+        <!--<button class="btn-history btn btn-primary" type="button" id="btnChatHistory"> Chat History</button>-->
+    </div>
+    <ol class="chat" id="chat">
+        <hr/>
+    </ol>
+    <form action="" id="form">
+        <input class="textarea" id="m" autocomplete="off" type="text" placeholder="Type here!" /><button type="button" style="display:none">Send</button>
+    </form>
+
+    <div class="modal fade" data-backdrop="static" tabindex="-1" style="display:none" id="myModal" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Please enter a Username and Chatroom Name</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" placeholder="Username" id="userName" aria-describedby="basic-addon1">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">&nbsp;/&nbsp;</span>
+                        <input type="text" class="form-control" placeholder="Chatroom Name" id="chatRoomName" aria-describedby="basic-addon3">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="joinChatRoom" class="btn btn-primary">Join Chatroom</button>
+                    <button type="button" id="createChatRoom" class="btn btn-primary">Create New Chatroom</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js" type="text/javascript"></script>
+    <script src="styling/bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+
+</html>
